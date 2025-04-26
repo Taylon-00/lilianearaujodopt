@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liliane Araújo - Secretária Executiva e Advogada</title>
+
+  <!-- FontAwesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Swiper para carrossel -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
   <style>
     body {
       margin: 0;
@@ -14,8 +19,7 @@
     }
 
     header {
-      background-color: #3c0066;
-      color: white;
+      background: #3c0066;
       padding: 1rem;
       position: sticky;
       top: 0;
@@ -24,36 +28,31 @@
 
     nav {
       display: flex;
-      justify-content: space-around;
       flex-wrap: wrap;
-      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    nav .nav-item {
+      background: linear-gradient(45deg, #3c0066, gold);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      padding: 0.5rem;
       font-size: 1rem;
     }
 
-    nav a:hover {
+    .social-icons a {
+      margin-left: 10px;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .social-icons a:hover {
       color: gold;
-    }
-
-    section {
-      padding: 2rem;
-    }
-
-    .intro, .adv-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .intro img, .adv-section img {
-      max-width: 300px;
-      border-radius: 1rem;
     }
 
     .section-title {
@@ -65,32 +64,81 @@
       gap: 0.5rem;
     }
 
-    .social-icons a {
-      margin: 0 0.5rem;
-      font-size: 1.5rem;
-      color: #3c0066;
+    section {
+      padding: 2rem;
     }
 
-    .social-icons a:hover {
-      color: goldenrod;
-    }
-
-    .carousel {
+    .intro {
       display: flex;
-      overflow-x: auto;
-      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      align-items: center;
     }
 
-    .carousel img {
-      max-height: 300px;
+    .intro img {
+      width: 100%;
+      max-width: 350px;
       border-radius: 1rem;
     }
 
-    .mapa iframe {
+    .intro .typing {
+      font-size: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid;
+      width: 0;
+      animation: typing 4s steps(20, end) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .swiper {
       width: 100%;
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img, .swiper-slide iframe {
+      width: 100%;
+      max-width: 400px;
       height: 400px;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+
+    iframe.news, .mapa iframe {
+      width: 100%;
+      height: 500px;
       border: none;
       border-radius: 1rem;
+      margin-top: 1rem;
+    }
+
+    .mapa {
+      position: relative;
+    }
+
+    .mapa img.map-small {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 100px;
+      border-radius: 1rem;
+      border: 2px solid #3c0066;
     }
 
     footer {
@@ -100,92 +148,132 @@
       padding: 1rem;
       font-size: 0.9rem;
     }
-
-    .video-section iframe {
-      width: 100%;
-      max-width: 500px;
-      height: 600px;
-      border: none;
-      border-radius: 1rem;
-      margin-top: 1rem;
-    }
-
-    .section-title i {
-      color: #3c0066;
-    }
   </style>
 </head>
 
 <body>
+
   <header>
     <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#trabalhos">Trabalhos</a>
-      <a href="#advogada">Advogada</a>
-      <a href="#noticias">Notícias</a>
-      <a href="#video">Vídeo</a>
-      <a href="#mapa">Mapa</a>
-      <a href="mailto:contato@lilianearaujo.com"><i class="fas fa-envelope"></i></a>
+      <div class="nav-item"><a href="#sobre">Sobre</a></div>
+      <div class="nav-item"><a href="#trabalhos">Trabalhos</a></div>
+      <div class="nav-item"><a href="#advogada">Advogada</a></div>
+      <div class="nav-item"><a href="#noticias">Destaques</a></div>
+      <div class="nav-item"><a href="#videos">Vlog Youtube</a></div>
+      <div class="nav-item"><a href="#blog">Blog</a></div>
+      <div class="nav-item"><a href="#secretaria">Secretaria das Mulheres</a></div>
       <div class="social-icons">
-        <a href="https://www.instagram.com/lilianedopt" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/5585988889999" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/lilianedopt" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="mailto:contato@lilianearaujo.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/lilianedopt" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5585988889999" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/lilianedopt" target="_blank"><i class="fab fa-facebook"></i></a>
       </div>
     </nav>
   </header>
 
   <section id="sobre">
-    <h2 class="section-title"><i class="fas fa-user"></i> Secretária Executiva de Políticas Para Mulheres</h2>
+    <h2 class="section-title"><i class="fas fa-user-tie"></i> <span class="typing">Liliane Araújo</span></h2>
     <div class="intro">
       <img src="https://www.ceara.gov.br/wp-content/uploads/2023/06/JW09099-scaled.jpg" alt="Liliane Araújo">
-      <p>
-        Liliane Araújo é professora, socióloga, advogada, especialista em Gestão Pública Municipal e em Direito Eleitoral,
-        Previdenciário e do Trabalho. Possui vasta experiência na administração pública...
-      </p>
+      <p>Secretária Executiva de Políticas Para Mulheres, professora, socióloga e advogada especializada em Direito Eleitoral, Previdenciário e do Trabalho. Reconhecida pela sua atuação em políticas públicas e defesa dos direitos sociais.</p>
     </div>
   </section>
 
   <section id="trabalhos">
     <h2 class="section-title"><i class="fas fa-briefcase"></i> Trabalhos</h2>
-    <p>Espaço para futuras fotos e atualizações sobre projetos desenvolvidos por Liliane.</p>
+    <div class="intro">
+      <img src="https://cdn.pixabay.com/photo/2018/01/29/12/13/teamwork-3113838_1280.jpg" alt="Trabalhos">
+      <p>Liliane desenvolve projetos de apoio às mulheres empreendedoras, lidera ações sociais e trabalha pela promoção da igualdade de gênero em todo o Ceará.</p>
+    </div>
   </section>
 
   <section id="advogada">
-    <h2 class="section-title"><i class="fas fa-gavel"></i> Atuação como Advogada</h2>
-    <div class="adv-section">
-      <img src="https://cdn.pixabay.com/photo/2018/02/05/20/41/law-3139386_1280.jpg" alt="Liliane e Justiça">
-      <p>
-        Liliane também atua como advogada com especializações em áreas cruciais como Direito Eleitoral, Previdenciário e do Trabalho...
-      </p>
+    <h2 class="section-title"><i class="fas fa-balance-scale"></i> Advogada</h2>
+    <div class="intro">
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/04/17/justice-1869945_1280.jpg" alt="Justiça">
+      <p>Advogada atuante em Direito Eleitoral, Previdenciário e do Trabalho, Liliane representa cidadãos e movimentos sociais em defesa de direitos fundamentais.</p>
     </div>
   </section>
 
   <section id="noticias">
-    <h2 class="section-title"><i class="fas fa-newspaper"></i> Notícias e Destaques</h2>
-    <div class="carousel">
-      <div>
-        <img src="https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3601447348720658449" alt="Notícia em destaque">
-        <p>Entrevista concedida à Revista Acontecer - destaque na atuação em políticas públicas.</p>
+    <h2 class="section-title"><i class="fas fa-newspaper"></i> Destaques</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <iframe src="https://www.instagram.com/p/DHJRkPQxAnZ/embed" allowfullscreen></iframe>
+        </div>
       </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </section>
 
-  <section id="video">
-    <h2 class="section-title"><i class="fab fa-instagram"></i> Vídeo no Instagram</h2>
-    <div class="video-section">
-      <iframe src="https://www.instagram.com/reel/DFYw6I5uWAb/embed" allowfullscreen></iframe>
+  <section id="videos">
+    <h2 class="section-title"><i class="fab fa-youtube"></i> Vlog Youtube</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <iframe src="https://www.youtube.com/embed/nOeRfKJgBno" allowfullscreen></iframe>
+        </div>
+        <div class="swiper-slide">
+          
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2 class="section-title"><i class="fas fa-blog"></i> Blog</h2>
+    <iframe class="news" src="https://www.estadao.com.br/politica/eleicoes/2024/candidatos-ce/fortaleza/vereador/liliane-do-pt-13100/"></iframe>
+    <iframe class="news" src="https://pt.org.br/liliane-da-silveira-araujo/"></iframe>
+  </section>
+
+  <section id="secretaria">
+    <h2 class="section-title"><i class="fas fa-female"></i> Secretaria das Mulheres</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <iframe src="https://www.instagram.com/p/DHbdseqxhHL/embed" allowfullscreen></iframe>
+        </div>
+        <div class="swiper-slide">
+          <iframe src="https://www.instagram.com/p/DHWa1EeRjRQ/embed" allowfullscreen></iframe>
+        </div>
+        <div class="swiper-slide">
+          <iframe class="news" src="https://www.ceara.gov.br/2023/06/07/ceara-credi-mulher-liderancas-femininas-recebem-capacitacao-para-alavancar-negocios/"></iframe>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </section>
 
   <section id="mapa">
     <h2 class="section-title"><i class="fas fa-map-marker-alt"></i> Localização - Ceará</h2>
     <div class="mapa">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1997710.7653827553!2d-40.969416249999995!3d-5.000000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x79f5b2cebf4702f%3A0x6e0be1e54d474275!2sCear%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1714065673746" allowfullscreen=""></iframe>
+      <img src="https://img.freepik.com/vetores-premium/ceara-mapa-estado-do-brasil-ilustracao-vetorial_601298-7153.jpg" alt="Mapa Ceará" class="map-small">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1997710.7653827553!2d-40.969416249999995!3d-5.000000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x79f5b2cebf4702f%3A0x6e0be1e54d474275!2sCear%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1714065673746" allowfullscreen></iframe>
     </div>
   </section>
 
   <footer>
     <p>© 2025 Liliane Araújo - Todos os direitos reservados.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+
 </body>
 </html>
