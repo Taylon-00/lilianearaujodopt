@@ -82,6 +82,44 @@
     header#home .btn-primary:hover {
       background-color: #555;
     }
+    #highlights .media-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    #highlights .media-item {
+      width: 220px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px #9c59b6e9;
+      background: var(--cinza-claro);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    #highlights iframe,
+    #highlights img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px 20px 0 0;
+      display: block;
+      background: #eee;
+    }
+    #highlights .caption {
+      padding: 10px 12px;
+      font-size: 0.98rem;
+      color: var(--roxo-escuro);
+      text-align: center;
+      font-weight: 600;
+      min-height: 40px;
+      background: var(--branco);
+      width: 100%;
+      border-radius: 0 0 20px 20px;
+    }
     /* Sections */
     section {
       padding: 60px 0;
@@ -182,6 +220,40 @@
       color: #6b1d9e;
       margin-right: 10px;
     }
+    #testimonials .testimonial-card {
+      background: var(--cinza-claro);
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(155, 89, 182, 0.1);
+      padding: 28px 30px;
+      margin-bottom: 28px;
+      color: var(--cinza-escuro);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    #testimonials .testimonial-card img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 10px rgba(155, 89, 182, 0.15);
+      flex-shrink: 0;
+    }
+    #testimonials .testimonial-content {
+      flex: 1;
+    }
+    #testimonials .testimonial-content p {
+      font-style: italic;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+    #testimonials .testimonial-content .author {
+      font-weight: 700;
+      color: var(--roxo-escuro);
+      font-size: 1rem;
+    }
+
     /* Footer */
     footer {
       background-color: #fff;
@@ -215,6 +287,7 @@
         <ul class="navbar-nav fs-5">
           <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#highlights">Destaques</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Áreas de Atuação</a></li>
           <li class="nav-item"><a class="nav-link" href="#mission">Missão</a></li>
           <li class="nav-item"><a class="nav-link" href="#testimonials">Depoimentos</a></li>
@@ -253,7 +326,33 @@
       </div>
     </div>
   </section>
+    <!-- Sobre -->
+  <!-- ... (demais seções iguais ao código anterior: Sobre, Áreas de Atuação, Destaques, Missão, Depoimentos, Footer, Botão Topo) ... -->
 
+  <!-- Destaques -->
+  <section id="highlights">
+    <h2 class="section-title">Destaques</h2>
+    <div class="media-grid">
+      <div class="media-item">
+        <iframe src="https://www.instagram.com/p/DJFfaqNR4m9/embed" allowfullscreen loading="lazy" style="border:none;"></iframe>
+        <div class="caption">Vídeo Instagram</div>
+      </div>
+      <div class="media-item">
+        <iframe src="https://www.instagram.com/p/DJC7oGMxBRb/embed" allowfullscreen loading="lazy" style="border:none;"></iframe>
+        <div class="caption">Vídeo Instagram</div>
+      </div>
+      <div class="media-item">
+        <iframe src="https://www.instagram.com/p/DJAbUdtRF0U/embed" allowfullscreen loading="lazy" style="border:none;"></iframe>
+        <div class="caption">Vídeo Instagram</div>
+      </div>
+      <div class="media-item">
+        <iframe src="https://www.instagram.com/p/DI86P8hRO7R/embed" allowfullscreen loading="lazy" style="border:none;"></iframe>
+        <div class="caption">Vídeo Instagram</div>
+      </div>
+      <div class="media-item">
+        <iframe src="https://www.instagram.com/p/C-LAzdxuOi_/embed" allowfullscreen loading="lazy" style="border:none;"></iframe>
+        <div class="caption">Notícia Instagram</div>
+      </div>
   <!-- Áreas de Atuação -->
   <section id="services" class="container">
     <h2 class="section-title">Áreas de Atuação</h2>
@@ -302,20 +401,18 @@
   <!-- Depoimentos -->
   <section id="testimonials" class="container">
     <h2 class="section-title">Depoimentos</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <p>
-                “A Lília é uma profissional exemplar, que alia conhecimento jurídico com sensibilidade social. Sua atuação tem transformado vidas e fortalecido a luta pelos direitos das mulheres.”
-          </p>
-          <div class="author">– Maria Silva, ativista social</div>
-        </div>
-        <div class="card">
-          <p>
-            “Trabalhar com a Lília foi uma experiência enriquecedora. Sua dedicação e ética são inspiradoras para todos que buscam justiça e igualdade.”
-          </p>
-          <div class="author">– João Pereira, advogado</div>
-        </div>
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria Silva" />
+      <div class="testimonial-content">
+        <p>“A Lília é uma profissional exemplar, que alia conhecimento jurídico com sensibilidade social. Sua atuação tem transformado vidas e fortalecido a luta pelos direitos das mulheres.”</p>
+        <div class="author">Maria Silva, ativista social</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="João Pereira" />
+      <div class="testimonial-content">
+        <p>“Trabalhar com a Lília foi uma experiência enriquecedora. Sua dedicação e ética são inspiradoras para todos que buscam justiça e igualdade.”</p>
+        <div class="author">João Pereira, advogado</div>
       </div>
     </div>
   </section>
