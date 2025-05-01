@@ -76,7 +76,7 @@
       padding: 12px 30px;
       font-size: 1.1rem;
       font-weight: 700;
-      box-shadow: 0 4px 10px rgba(255,111,97,0.5);
+      box-shadow: 0 4px 10px #6b1d9e;
       transition: background-color 0.3s;
     }
     header#home .btn-primary:hover {
@@ -140,7 +140,7 @@
     /* Depoimentos */
     #testimonials .card {
       border: none;
-      box-shadow: 0 4px 12px rgba(252, 4, 4, 0.1);
+      box-shadow: 0 4px 12px #6b1d9e;
       padding: 30px;
       border-radius: 12px;
       background-color: white;
@@ -166,8 +166,8 @@
     }
     /* Contato */
     #contact form .form-control:focus {
-      border-color: #ff6f61;
-      box-shadow: 0 0 8px rgba(255,111,97,0.5);
+      border-color: #6b1d9e;
+      box-shadow: 0 0 8px #6b1d9e;
     }
     #contact .btn-primary {
       background-color: #555;
@@ -176,15 +176,15 @@
       transition: background-color 0.3s;
     }
     #contact .btn-primary:hover {
-      background-color: #e65a4f;
+      background-color: #6b1d9e;
     }
     #contact .contact-info i {
-      color: #ff6f61;
+      color: #6b1d9e;
       margin-right: 10px;
     }
     /* Footer */
     footer {
-      background-color: ;
+      background-color: #fff;
       color: #7307a5ee;
       padding: 20px 0;
       text-align: center;
@@ -378,7 +378,15 @@
           alertBox.innerHTML = '';
           return;
         }
-
+         // Mostrar botão subir topo ao rolar a página
+    const btnTop = document.getElementById('btnTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnTop.style.display = 'flex';
+      } else {
+        btnTop.style.display = 'none';
+      }
+    });
         // Simular envio (substitua por integração real)
         alertBox.innerHTML = '<div class="alert alert-success">Mensagem enviada com sucesso! Entraremos em contato em breve.</div>';
         form.reset();
