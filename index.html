@@ -1,279 +1,390 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Liliane Araújo - Secretária Executiva e Advogada</title>
-
-  <!-- FontAwesome para ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Swiper para carrossel -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
   <style>
+    /* Reset e fontes */
     body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(to bottom, #fdfbff, #f3eaff);
-      color: #2c2c2c;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #7d718d;
+      scroll-behavior: smooth;
     }
-
-    header {
-      background: #3c0066;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #7307a5ee;
     }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
+    /* Navbar */
+    nav.navbar {
+      background-color: #6b1d9e;
     }
-
-    nav .nav-item {
-      background: linear-gradient(45deg, #3c0066, gold);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
+    nav.navbar .navbar-brand,
+    nav.navbar .nav-link {
+      color: #f0f0f0;
+      transition: color 0.3s;
     }
-
-    nav a {
+    nav.navbar .nav-link:hover,
+    nav.navbar .nav-link.active {
+      color: #d59befbf;
+    }
+    /* Header */
+    header#home {
+      background: url('https://www.opovo.com.br/_midias/jpg/2025/03/17/995x663/1_foto_2___secretaria_liliane_araujo__1_-33451202.jpg') no-repeat center center/cover;
+      height: 100vh;
+      position: relative;
       color: white;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-
-    .social-icons a {
-      margin-left: 10px;
-      font-size: 1.5rem;
-      color: white;
-    }
-
-    .social-icons a:hover {
-      color: gold;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      color: #3c0066;
-      margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-    }
-
-    section {
-      padding: 2rem;
-    }
-
-    .intro {
-      display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
-      align-items: center;
+      text-align: center;
+      padding: 0 20px;
     }
-
-    .intro img {
-      width: 100%;
-      max-width: 350px;
-      border-radius: 1rem;
+    header#home::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #d59befbf;
+      z-index: 0;
     }
-
-    .intro .typing {
-      font-size: 1.5rem;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid;
-      width: 0;
-      animation: typing 4s steps(20, end) forwards, blink 0.7s infinite;
+    header#home .content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
     }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+    header#home h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
     }
-
-    @keyframes blink {
-      50% { border-color: transparent }
+    header#home p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
     }
-
-    .swiper {
-      width: 100%;
-      padding-top: 20px;
-      padding-bottom: 40px;
-    }
-
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-slide img, .swiper-slide iframe {
-      width: 100%;
-      max-width: 400px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 1rem;
-    }
-
-    iframe.news, .mapa iframe {
-      width: 100%;
-      height: 500px;
+    header#home .btn-primary {
+      background-color: #555;
       border: none;
-      border-radius: 1rem;
-      margin-top: 1rem;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(255,111,97,0.5);
+      transition: background-color 0.3s;
     }
-
-    .mapa {
+    header#home .btn-primary:hover {
+      background-color: #555;
+    }
+    /* Sections */
+    section {
+      padding: 60px 0;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      position: relative;
+      color: #7d7d84;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #d59befbf;
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+    /* Sobre */
+    #about .photo {
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(255, 232, 232, 0.375);
+      margin-bottom: 30px;
+    }
+    #about p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+    /* Áreas de atuação */
+    #services .card {
+      border: none;
+      box-shadow: 0 4px 12px rgba(255, 232, 232, 0.375);
+      transition: transform 0.3s;
+      border-radius: 12px;
+    }
+    #services .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
+    }
+    #services .card i {
+      font-size: 3rem;
+      color: #d59befbf;
+      margin-bottom: 20px;
+    }
+    /* Missão Institucional */
+    #mission ul {
+      list-style: disc inside;
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 20px;
+    }
+    /* Depoimentos */
+    #testimonials .card {
+      border: none;
+      box-shadow: 0 4px 12px rgba(252, 4, 4, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      background-color: white;
+      margin-bottom: 30px;
+      font-style: italic;
+      color: #555;
       position: relative;
     }
-
-    .mapa img.map-small {
+    #testimonials .card::before {
+      content: "“";
+      font-size: 4rem;
+      color: #d59befbf;
       position: absolute;
       top: 10px;
-      right: 10px;
-      width: 100px;
-      border-radius: 1rem;
-      border: 2px solid #3c0066;
+      left: 20px;
+      font-family: serif;
     }
-
+    #testimonials .author {
+      margin-top: 15px;
+      font-weight: 700;
+      color: #555;
+      text-align: right;
+    }
+    /* Contato */
+    #contact form .form-control:focus {
+      border-color: #ff6f61;
+      box-shadow: 0 0 8px rgba(255,111,97,0.5);
+    }
+    #contact .btn-primary {
+      background-color: #555;
+      border: none;
+      font-weight: 700;
+      transition: background-color 0.3s;
+    }
+    #contact .btn-primary:hover {
+      background-color: #e65a4f;
+    }
+    #contact .contact-info i {
+      color: #ff6f61;
+      margin-right: 10px;
+    }
+    /* Footer */
     footer {
-      background: #3c0066;
-      color: white;
+      background-color: ;
+      color: #7307a5ee;
+      padding: 20px 0;
       text-align: center;
-      padding: 1rem;
       font-size: 0.9rem;
+    }
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header#home h1 {
+        font-size: 2.5rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <nav>
-      <div class="nav-item"><a href="#sobre">Sobre</a></div>
-      <div class="nav-item"><a href="#trabalhos">Trabalhos</a></div>
-      <div class="nav-item"><a href="#advogada">Advogada</a></div>
-      <div class="nav-item"><a href="#noticias">Destaques</a></div>
-      <div class="nav-item"><a href="#videos">Vlog Youtube</a></div>
-      <div class="nav-item"><a href="#blog">Blog</a></div>
-      <div class="nav-item"><a href="#secretaria">Secretaria das Mulheres</a></div>
-      <div class="social-icons">
-        <a href="mailto:contato@lilianearaujo.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.instagram.com/lilianedopt" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/5585988889999" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/lilianedopt" target="_blank"><i class="fab fa-facebook"></i></a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fs-3 fw-bold" href="#home">Liliane Araújo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav fs-5">
+          <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Áreas de Atuação</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mission">Missão</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Depoimentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
+    <div class="content">
+      <h1>Liliane Araújo</h1>
+      <p>⭐️ Vice-presidenta do <strong>@ptfortalezaoficial</strong><br>✨ Secretária Executiva das Mulheres do Ceará<br><strong>Advogada</strong> • <strong>Professora</strong> • <strong>Socióloga</strong> • <strong>Mãe de pets</strong></p>
+      <a href="#contact" class="btn btn-primary btn-lg"><i class="fa-solid fa-envelope"></i> Fale Conosco</a>
+    </div>
   </header>
 
-  <section id="sobre">
-    <h2 class="section-title"><i class="fas fa-user-tie"></i> <span class="typing">Liliane Araújo</span></h2>
-    <div class="intro">
-      <img src="https://www.ceara.gov.br/wp-content/uploads/2023/06/JW09099-scaled.jpg" alt="Liliane Araújo">
-      <p>Secretária Executiva de Políticas Para Mulheres, professora, socióloga e advogada especializada em Direito Eleitoral, Previdenciário e do Trabalho. Reconhecida pela sua atuação em políticas públicas e defesa dos direitos sociais.</p>
+  <!-- Sobre -->
+  <section id="about" class="container">
+    <h2 class="section-title">Sobre Liliane Araújo</h2>
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-center">
+        <img src="https://www.ceara.gov.br/wp-content/uploads/2023/06/JW09099-scaled.jpg" alt="Lília Araújo" class="photo img-fluid" />
+      </div>
+      <div class="col-lg-8">
+        <p>
+          Liliane Araújo é Secretária Executiva de Políticas Para Mulheres do Ceará, advogada, professora e socióloga. Sua trajetória é marcada pela atuação destacada em políticas públicas, direitos das mulheres e inclusão social.
+        </p>
+        <p>
+          Com experiência em Direito Civil, Trabalhista e Família, dedica-se à promoção da equidade de gênero, à formulação e implementação de políticas que garantam os direitos humanos das mulheres e ao enfrentamento das desigualdades sociais.
+        </p>
+        <p>
+          Seu compromisso é com o atendimento humanizado, a ética e a busca por soluções inovadoras para ampliar a cidadania e a autonomia das mulheres cearenses.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section id="trabalhos">
-    <h2 class="section-title"><i class="fas fa-briefcase"></i> Trabalhos</h2>
-    <div class="intro">
-      <img src="https://cdn.pixabay.com/photo/2018/01/29/12/13/teamwork-3113838_1280.jpg" alt="Trabalhos">
-      <p>Liliane desenvolve projetos de apoio às mulheres empreendedoras, lidera ações sociais e trabalha pela promoção da igualdade de gênero em todo o Ceará.</p>
-    </div>
-  </section>
-
-  <section id="advogada">
-    <h2 class="section-title"><i class="fas fa-balance-scale"></i> Advogada</h2>
-    <div class="intro">
-      <img src="https://cdn.pixabay.com/photo/2016/11/29/04/17/justice-1869945_1280.jpg" alt="Justiça">
-      <p>Advogada atuante em Direito Eleitoral, Previdenciário e do Trabalho, Liliane representa cidadãos e movimentos sociais em defesa de direitos fundamentais.</p>
-    </div>
-  </section>
-
-  <section id="noticias">
-    <h2 class="section-title"><i class="fas fa-newspaper"></i> Destaques</h2>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <iframe src="https://www.instagram.com/p/DHJRkPQxAnZ/embed" allowfullscreen></iframe>
+  <!-- Áreas de Atuação -->
+  <section id="services" class="container">
+    <h2 class="section-title">Áreas de Atuação</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card text-center p-4 h-100">
+          <i class="fa-solid fa-balance-scale"></i>
+          <h4 class="mt-3">Direito Civil</h4>
+          <p>Contratos, indenizações, responsabilidade civil, direito do consumidor e defesa dos direitos fundamentais das mulheres.</p>
         </div>
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </section>
-
-  <section id="videos">
-    <h2 class="section-title"><i class="fab fa-youtube"></i> Vlog Youtube</h2>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <iframe src="https://www.youtube.com/embed/nOeRfKJgBno" allowfullscreen></iframe>
-        </div>
-        <div class="swiper-slide">
-          
+      <div class="col-md-4">
+        <div class="card text-center p-4 h-100">
+          <i class="fa-solid fa-briefcase"></i>
+          <h4 class="mt-3">Direito Trabalhista</h4>
+          <p>Defesa dos direitos trabalhistas das mulheres, combate à discriminação de gênero no trabalho, rescisão, verbas e ações judiciais.</p>
         </div>
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </section>
-
-  <section id="blog">
-    <h2 class="section-title"><i class="fas fa-blog"></i> Blog</h2>
-    <iframe class="news" src="https://www.estadao.com.br/politica/eleicoes/2024/candidatos-ce/fortaleza/vereador/liliane-do-pt-13100/"></iframe>
-    <iframe class="news" src="https://pt.org.br/liliane-da-silveira-araujo/"></iframe>
-  </section>
-
-  <section id="secretaria">
-    <h2 class="section-title"><i class="fas fa-female"></i> Secretaria das Mulheres</h2>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <iframe src="https://www.instagram.com/p/DHbdseqxhHL/embed" allowfullscreen></iframe>
-        </div>
-        <div class="swiper-slide">
-          <iframe src="https://www.instagram.com/p/DHWa1EeRjRQ/embed" allowfullscreen></iframe>
-        </div>
-        <div class="swiper-slide">
-          <iframe class="news" src="https://www.ceara.gov.br/2023/06/07/ceara-credi-mulher-liderancas-femininas-recebem-capacitacao-para-alavancar-negocios/"></iframe>
+      <div class="col-md-4">
+        <div class="card text-center p-4 h-100">
+          <i class="fa-solid fa-users"></i>
+          <h4 class="mt-3">Direito de Família</h4>
+          <p>Divórcios, guarda, pensão alimentícia, inventários, partilhas e proteção à mulher em situação de violência doméstica.</p>
         </div>
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
     </div>
   </section>
 
-  <section id="mapa">
-    <h2 class="section-title"><i class="fas fa-map-marker-alt"></i> Localização - Ceará</h2>
-    <div class="mapa">
-      <img src="https://img.freepik.com/vetores-premium/ceara-mapa-estado-do-brasil-ilustracao-vetorial_601298-7153.jpg" alt="Mapa Ceará" class="map-small">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1997710.7653827553!2d-40.969416249999995!3d-5.000000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x79f5b2cebf4702f%3A0x6e0be1e54d474275!2sCear%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1714065673746" allowfullscreen></iframe>
+  <!-- Missão Institucional -->
+  <section id="mission" class="container bg-white rounded-4 shadow-sm my-5 p-5">
+    <h2 class="section-title">Missão Institucional</h2>
+    <p>
+      Como parte da Secretaria das Mulheres do Ceará, Liliane Araújo atua na formulação, implementação e avaliação de políticas públicas que visam garantir os direitos humanos das mulheres, promover a equidade de gênero e combater toda forma de discriminação, violência e opressão.
+    </p>
+    <ul>
+      <li>Desenvolvimento de ações e projetos de prevenção, educação e capacitação profissional para mulheres.</li>
+      <li>Promoção da inclusão social e autonomia econômica das mulheres, com incentivo ao empreendedorismo e acesso ao crédito.</li>
+      <li>Articulação de políticas intersetoriais nas áreas de saúde, educação, segurança, trabalho e cultura.</li>
+      <li>Fomento à participação social e ao controle cidadão nas políticas públicas para mulheres.</li>
+    </ul>
+    <p>
+      Nosso objetivo é construir uma sociedade mais justa, igualitária e livre de violência, onde as mulheres sejam reconhecidas como sujeitos de direitos e protagonistas de suas próprias histórias.
+    </p>
+  </section>
+
+  <!-- Depoimentos -->
+  <section id="testimonials" class="container">
+    <h2 class="section-title">Depoimentos</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <p>
+                “A Lília é uma profissional exemplar, que alia conhecimento jurídico com sensibilidade social. Sua atuação tem transformado vidas e fortalecido a luta pelos direitos das mulheres.”
+          </p>
+          <div class="author">– Maria Silva, ativista social</div>
+        </div>
+        <div class="card">
+          <p>
+            “Trabalhar com a Lília foi uma experiência enriquecedora. Sua dedicação e ética são inspiradoras para todos que buscam justiça e igualdade.”
+          </p>
+          <div class="author">– João Pereira, advogado</div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Contato -->
+  <section id="contact" class="container my-5">
+    <h2 class="section-title">Contato</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <form id="contactForm" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="name" required placeholder="Seu nome" />
+            <div class="invalid-feedback">Por favor, insira seu nome.</div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" required placeholder="seu@email.com" />
+            <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Mensagem</label>
+            <textarea class="form-control" id="message" rows="5" required placeholder="Escreva sua mensagem"></textarea>
+            <div class="invalid-feedback">Por favor, escreva uma mensagem.</div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Enviar</button>
+          <div id="formAlert" class="mt-3"></div>
+        </form>
+        <div class="contact-info mt-4">
+          <p><i class="fa-solid fa-phone"></i> (85) 99999-9999</p>
+          <p><i class="fa-solid fa-envelope"></i> lilia.araujo@email.com</p>
+          <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/5585999999999" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+          <p><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/lilia-araujo" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Liliane Araújo - Todos os direitos reservados.</p>
+    <div class="container">
+      &copy; 2025 Liliane Araújo - Todos os direitos reservados.
+    </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    var swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  </script>
+    // Validação simples do formulário
+    (() => {
+      'use strict';
+      const form = document.getElementById('contactForm');
+      const alertBox = document.getElementById('formAlert');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
 
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          alertBox.innerHTML = '';
+          return;
+        }
+
+        // Simular envio (substitua por integração real)
+        alertBox.innerHTML = '<div class="alert alert-success">Mensagem enviada com sucesso! Entraremos em contato em breve.</div>';
+        form.reset();
+        form.classList.remove('was-validated');
+      });
+    })();
+  </script>
 </body>
 </html>
